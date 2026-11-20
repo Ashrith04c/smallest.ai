@@ -1,0 +1,109 @@
+{
+  "project": "Smallest AI TTS API QA",
+  "executedAt": "2026-11-20T11:54:49.585Z",
+  "totalTests": 8,
+  "passedHttp": 4,
+  "failedHttp": 4,
+  "results": [
+    {
+      "id": "TC01",
+      "name": "Valid Pro TTS request",
+      "timestamp": "2026-11-20T11:54:23.325Z",
+      "status": 200,
+      "responseTimeMs": 1625,
+      "contentType": "application/octet-stream",
+      "responseSizeBytes": 272080,
+      "requestId": "68b1cff7-89f0-4fb8-8f4a-df1a0c8e0a33",
+      "audioGenerated": true,
+      "audioFile": "tc01.audio",
+      "audioSignature": "Audio content type"
+    },
+    {
+      "id": "TC02",
+      "name": "Standard model with Pro voice",
+      "timestamp": "2026-11-20T11:54:25.981Z",
+      "status": 400,
+      "responseTimeMs": 126,
+      "contentType": "application/json; charset=utf-8",
+      "responseSizeBytes": 78,
+      "requestId": "f7e8b83a-5d66-44e1-a866-1845ac8b3543",
+      "audioGenerated": false,
+      "responsePreview": "{\"error\":[{\"code\":\"custom\",\"path\":[\"voice_id\"],\"message\":\"Invalid Voice ID\"}]}"
+    },
+    {
+      "id": "TC03",
+      "name": "Invalid voice ID",
+      "timestamp": "2026-11-20T11:54:27.122Z",
+      "status": 400,
+      "responseTimeMs": 137,
+      "contentType": "application/json; charset=utf-8",
+      "responseSizeBytes": 136,
+      "requestId": "b4bc0ced-b58a-4369-9994-cf0638907d65",
+      "audioGenerated": false,
+      "responsePreview": "{\"error\":[{\"code\":\"custom\",\"path\":[\"voice_id\"],\"message\":\"Voice 'invalid_voice_123' is not available on the lightning_v3.1_pro model\"}]}"
+    },
+    {
+      "id": "TC04",
+      "name": "Invalid model ID",
+      "timestamp": "2026-11-20T11:54:28.288Z",
+      "status": 400,
+      "responseTimeMs": 118,
+      "contentType": "application/json; charset=utf-8",
+      "responseSizeBytes": 362,
+      "requestId": "e5a0e486-861c-4770-b983-f20ade97a6aa",
+      "audioGenerated": false,
+      "responsePreview": "{\"error\":[{\"received\":\"invalid_model_123\",\"code\":\"invalid_enum_value\",\"options\":[\"lightning_v3.1\",\"lightning_v3.1_pro\",\"lightning_v3.1_pro_07_26\",\"lightning_v3.1_pro_10_26\"],\"path\":[\"model\"],\"message\":\"Invalid enum value. Expected 'lightning_v3.1' | 'lightning_v3.1_pro' | 'lightning_v3.1_pro_07_26' | 'lightning_v3.1_pro_10_26', received 'invalid_model_123'\"}]}"
+    },
+    {
+      "id": "TC05",
+      "name": "Empty text",
+      "timestamp": "2026-11-20T11:54:29.419Z",
+      "status": 400,
+      "responseTimeMs": 127,
+      "contentType": "application/json; charset=utf-8",
+      "responseSizeBytes": 140,
+      "requestId": "77e7027b-37e5-4915-a305-70495c8aa367",
+      "audioGenerated": false,
+      "responsePreview": "{\"error\":[{\"code\":\"too_small\",\"minimum\":1,\"type\":\"string\",\"inclusive\":true,\"exact\":false,\"message\":\"Text cannot be empty\",\"path\":[\"text\"]}]}"
+    },
+    {
+      "id": "TC06",
+      "name": "140 character input",
+      "timestamp": "2026-11-20T11:54:30.559Z",
+      "status": 200,
+      "responseTimeMs": 2178,
+      "contentType": "application/octet-stream",
+      "responseSizeBytes": 577630,
+      "requestId": "6dce8581-e852-46c9-9e11-e0d2c93ce935",
+      "audioGenerated": true,
+      "audioFile": "tc06.audio",
+      "audioSignature": "Audio content type"
+    },
+    {
+      "id": "TC07",
+      "name": "250 character fairy",
+      "timestamp": "2026-11-20T11:54:33.774Z",
+      "status": 200,
+      "responseTimeMs": 6196,
+      "contentType": "application/octet-stream",
+      "responseSizeBytes": 1552130,
+      "requestId": "258bd4fe-dd0e-405c-9687-a586e2f290b9",
+      "audioGenerated": true,
+      "audioFile": "tc07.audio",
+      "audioSignature": "Audio content type"
+    },
+    {
+      "id": "TC08",
+      "name": "251 character boundary",
+      "timestamp": "2026-11-20T11:54:41.028Z",
+      "status": 200,
+      "responseTimeMs": 7536,
+      "contentType": "application/octet-stream",
+      "responseSizeBytes": 1740840,
+      "requestId": "8e87d84f-894c-451d-8ea3-bb7c371da335",
+      "audioGenerated": true,
+      "audioFile": "tc08.audio",
+      "audioSignature": "Audio content type"
+    }
+  ]
+}
